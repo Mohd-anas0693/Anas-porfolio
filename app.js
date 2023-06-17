@@ -12,10 +12,10 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extented: false }))
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
+app.get('/api', function (req, res) {
     res.render('index');
 })
-app.post('/', async function (req, res) {
+app.post('/api', async function (req, res) {
     const message = {
         name: req.body.name,
         email:req.body.email,
@@ -23,7 +23,7 @@ app.post('/', async function (req, res) {
     }
     const insertMessage = await db.getDb().collection('message').insertOne(message);
     console.log('Data Inserted')
-    res.redirect('/');
+    res.redirect('/api');
 })
 db.connectToDatabase().then(
     app.listen(3000)
