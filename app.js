@@ -9,7 +9,7 @@ const db = require('./database/database');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
-app.use(express.urlencoded({ extented: true }))
+app.use(express.urlencoded({ extented: false }))
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
