@@ -27,4 +27,5 @@ app.post('/', async function (req, res) {
 })
 db.connectToDatabase().then(
     app.listen(3000)
+
 )
