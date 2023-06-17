@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 
 const app = express();
+const router= express.Router();
 
 const db = require('./database/database');
 
@@ -11,11 +12,11 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extented: true }))
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res) {
     res.render('index');
 })
 
-app.post('/', async function (req, res) {
+router.post('/', async function (req, res) {
     const message = {
         name: req.body.name,
         email:req.body.email,
