@@ -12,10 +12,10 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extented: false }))
 app.use(express.static('public'))
 
-app.get('/api', function (req, res) {
+app.get('/', function (req, res) {
     res.render('index');
 })
-app.post('/api', async function (req, res) {
+app.post('/', async function (req, res) {
     const message = {
         name: req.body.name,
         email:req.body.email,
